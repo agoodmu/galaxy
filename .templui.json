@@ -1,0 +1,7 @@
+{
+  "componentsDir": "ui/components",
+  "utilsDir": "utils",
+  "moduleName": "github.com/agoodmu/galaxy",
+  "jsDir": "assets/js",
+  "jsPublicPath": "/assets/js"
+}
