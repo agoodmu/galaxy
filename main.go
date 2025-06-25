@@ -5,8 +5,8 @@ import (
 	"os"
 
 	"github.com/agoodmu/galaxy/assets"
-	"github.com/agoodmu/galaxy/ginrender"
 	"github.com/agoodmu/galaxy/ui/pages"
+	"github.com/agoodmu/templrender"
 	"github.com/gin-gonic/gin"
 )
 
@@ -22,13 +22,10 @@ func init() {
 func main() {
 	router := gin.Default()
 
-	ginHtmlRenderer := router.HTMLRender
-	router.HTMLRender = &ginrender.HTMLTemplRenderer{FallbackHtmlRenderer: ginHtmlRenderer}
-
 	v := router.Group("/")
 	{
 		v.GET("/", func(c *gin.Context) {
-			c.Render(http.StatusOK, ginrender.New(c, http.StatusOK, pages.Landing()))
+			c.Render(http.StatusOK, templrender.New(c.Request.Context(), pages.Landing()))
 		})
 		v.StaticFS("/assets", http.FS(assets.Assets))
 		router.GET("/ping", func(c *gin.Context) {

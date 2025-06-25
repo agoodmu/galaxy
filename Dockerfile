@@ -11,6 +11,7 @@ RUN go install github.com/a-h/templ/cmd/templ@latest
 # Generate templ files
 RUN templ generate
 
+RUN ls -l assets/css
 # Install build dependencies
 RUN apk add --no-cache gcc musl-dev
 
