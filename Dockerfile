@@ -31,7 +31,7 @@ ENV GO_ENV=production
 COPY --from=build /app/main .
 
 # Expose the port your application runs on
-EXPOSE 8090
+EXPOSE 8080
 
 # Command to run the application
 CMD ["./main"]
